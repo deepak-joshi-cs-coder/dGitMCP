@@ -148,5 +148,7 @@ def git_add(files: list[str]) -> str:
 
 
 if __name__ == "__main__":
-    mcp.settings.port = 3005
+    import os
+    port = int(os.getenv("PORT", 3005))
+    mcp.settings.port = port
     mcp.run(transport="sse")
